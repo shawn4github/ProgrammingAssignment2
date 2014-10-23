@@ -15,18 +15,25 @@ makeCacheMatrix <- function(x = matrix()) {
         }
 	## Modify existing matrix, and initially clean cache to empty 	
 
-	get <- function() x					
+	get <- function() { 					
 	## Returns original matrix
-        
-	setinverse <- function(solve) inverseX <<- solve
+
+        	x
+	}
+
+	setinverse <- function(solve) { 
 	## compute inverse matrix, assign to inverseX, and store it to cache
-        
-	getinverse <- function() inverseX			
+
+        	inverseX <<- solve
+	}
+
+	getinverse <- function() { 			
 	## Returns matrix inverse
         
-	list(set = set, get = get,
-             setinverse = setinverse,
-             getinverse = getinverse)
+		inverseX
+	}
+
+	list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
 
